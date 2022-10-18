@@ -1,0 +1,53 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.row {
+  border-bottom: 1px solid #fefefe;
+  padding: 1.5em;
+  text-align: left;
+}
+
+.row:last-of-type {
+  border-bottom: none;
+}
+
+.row svg {
+  height: 50px;
+}
+
+.image-wrapper {
+  border-radius: 4px;
+  padding: 16px;
+  border: 1px solid #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-wrapper h5 {
+  margin: 0 0 8px;
+}
+
+.image-wrapper img {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.row .list {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.row .list .item {
+  border: 1px solid #fefefe;
+  border-radius: 3px;
+  margin-bottom: 0.5em;
+}
