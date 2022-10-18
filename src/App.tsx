@@ -22,6 +22,8 @@ const App = () => {
         <ErrorBoundary>
           <BuggyComponent />
         </ErrorBoundary>
+        <li>Use free plan of Sentry to monitor errors in deployed application. Demonstrate error logs for production environment (you can easily deploy react app with netlify)</li>
+        <li>https://glittering-entremet-ca2312.netlify.app/</li>
       </Row>
       <Row header='React / Patterns'>
         <p>?</p>
