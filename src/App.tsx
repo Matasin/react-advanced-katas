@@ -2,7 +2,9 @@ import { Context } from '@/components/examples/Context';
 import { Hook } from '@/components/examples/Hook';
 import { BuggyComponent, ErrorBoundary } from '@/components/examples/ErrorBoundary';
 import { Performance } from '@/components/examples/Performance';
-import { StateManagement } from './components/examples/StateManagement';
+import { StateManagement } from '@/components/examples/StateManagement';
+import { Bundle } from '@/components/examples/Bundle';
+import { Realtime } from '@/components/examples/Realtime';
 import { Row } from '@/components/shared/Row';
 
 import './App.css';
@@ -34,10 +36,10 @@ const App = () => {
         <StateManagement />
       </Row>
       <Row header='Application Features / Bundle optimization'>
-        <p>?</p>
+        <Bundle />
       </Row>
       <Row header='Application Features / Realtime'>
-        <p>?</p>
+        <Realtime />
       </Row>
       <Row header='Graphql with Apollo / Usage'>
         <p>?</p>
