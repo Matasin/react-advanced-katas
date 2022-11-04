@@ -1,22 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { init as sentryInit } from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
+// import { init as sentryInit } from '@sentry/react';
+// import { BrowserTracing } from '@sentry/tracing';
 import { ErrorBoundary as SentryErrorBoundary } from '@sentry/react';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 import App from './App';
 import './index.css';
 
-sentryInit({
-  dsn: "https://a4eea289e2a04804b0fd945a2199a826@o4504004738154496.ingest.sentry.io/4504004739334144",
-  integrations: [new BrowserTracing()],
-  tracesSampleRate: 1.0,
+// const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN;
+// const MODE = import.meta.env.MODE;
+
+// sentryInit({
+//   dsn: SENTRY_DSN,
+//   integrations: [new BrowserTracing()],
+//   tracesSampleRate: MODE === 'production' ? 0.75 : 1.0,
+// });
+
+const client = new ApolloClient({
+  uri: 'https://flyby-gateway.herokuapp.com/',
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <SentryErrorBoundary fallback={() => <div>An error occurred.</div>}>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </SentryErrorBoundary>
   </React.StrictMode>
 );

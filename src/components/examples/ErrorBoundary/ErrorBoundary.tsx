@@ -1,5 +1,6 @@
+import { Component, ErrorInfo, ReactNode } from 'react';
+
 import { Row } from '@/components/shared/Row';
-import { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
   children?: ReactNode;

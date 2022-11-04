@@ -2,6 +2,7 @@ import { Context } from '@/components/examples/Context';
 import { Hook } from '@/components/examples/Hook';
 import { BuggyComponent, ErrorBoundary } from '@/components/examples/ErrorBoundary';
 import { Performance } from '@/components/examples/Performance';
+import { StateManagement } from './components/examples/StateManagement';
 import { Row } from '@/components/shared/Row';
 
 import './App.css';
@@ -22,17 +23,15 @@ const App = () => {
         <ErrorBoundary>
           <BuggyComponent />
         </ErrorBoundary>
-        <li>Use free plan of Sentry to monitor errors in deployed application. Demonstrate error logs for production environment (you can easily deploy react app with netlify)</li>
-        <li>https://glittering-entremet-ca2312.netlify.app/</li>
       </Row>
       <Row header='React / Patterns'>
-        <p>?</p>
+        <p>Add here links to PicDoc</p>
       </Row>
       <Row header='React / Testing'>
         <p>?</p>
       </Row>
       <Row header='Server State management / Usage'>
-        <p>?</p>
+        <StateManagement />
       </Row>
       <Row header='Application Features / Bundle optimization'>
         <p>?</p>
