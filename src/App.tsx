@@ -6,6 +6,7 @@ import { StateManagement } from '@/components/examples/StateManagement';
 import { Bundle } from '@/components/examples/Bundle';
 import { Realtime } from '@/components/examples/Realtime';
 import { Patterns } from '@/components/examples/Patterns';
+import { Testing } from '@/components/examples/Testing';
 import { Row } from '@/components/shared/Row';
 
 import './App.css';
@@ -14,11 +15,6 @@ const App = () => {
   return (
     <>
       <Row header='React / React with TS'>
-        <h4>Add typing for React Component:</h4>
-        <ul>
-          <li>with children prop (QueryLoader.tsx | ErrorBoundary.tsx)</li>
-          <li>without children prop(e.g. Lists components)</li>
-        </ul>
         <Context />
       </Row>
       <Row header='React / Hooks'>
@@ -36,7 +32,7 @@ const App = () => {
         <Patterns />
       </Row>
       <Row header='React / Testing'>
-        <p>?</p>
+        <Testing name='Adam'/>
       </Row>
       <Row header='Server State management / Usage'>
         <StateManagement />
