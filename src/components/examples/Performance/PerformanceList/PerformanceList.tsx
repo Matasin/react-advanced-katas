@@ -1,4 +1,6 @@
 import { memo } from 'react';
+import { List, AutoSizer } from 'react-virtualized';
+import { FixedSizeList } from 'react-window';
 
 import {
   type ItemType,
@@ -9,6 +11,15 @@ type PerformanceListProps = {
   items: ItemType[];
 };
 
+const renderItem = (item: ItemType) => {
+  return (
+    <PerformanceListItem
+      key={item.id}
+      item={item}
+    />
+  );
+};
+
 export const PerformanceList = ({
   items
 }: PerformanceListProps) => {
@@ -17,12 +28,7 @@ export const PerformanceList = ({
     <div className='list'>
       <h4>List:</h4>
       <ul>
-        {items.map(item => (
-          <PerformanceListItem
-            key={item.id}
-            item={item}
-          />
-        ))}
+        {items.map(renderItem)}
       </ul>
     </div>
   );
@@ -38,12 +44,7 @@ const PerformanceListMemo = memo(({
     <div className='list'>
       <h4>List with memo:</h4>
       <ul>
-        {items.map(item => (
-          <PerformanceListItem
-            key={item.id}
-            item={item}
-          />
-        ))}
+        {items.map(renderItem)}
       </ul>
     </div>
   );
@@ -51,4 +52,32 @@ const PerformanceListMemo = memo(({
 
 PerformanceListMemo.displayName = 'PerformanceListMemo';
 
+const PerformanceListVirtualized = memo(({
+  items
+}: PerformanceListProps) => {
+  return (
+    <>
+      <h4>List virtualized:</h4>
+      <FixedSizeList
+        height={250}
+        width='100%'
+        itemCount={items.length}
+        itemSize={155}
+      >
+        {({ index, style }) => {
+          const item = items[index];
+          return (
+            <div style={style}>
+              {renderItem(item)}
+            </div>
+          );
+        }}
+      </FixedSizeList>
+    </>
+  );
+});
+
+PerformanceListMemo.displayName = 'PerformanceListVirtualized';
+
 PerformanceList.Memo = PerformanceListMemo;
+PerformanceList.Virtualized = PerformanceListVirtualized;

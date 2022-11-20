@@ -7,8 +7,8 @@ import { PerformanceMemo } from './PerformanceMemo';
 import { PerformanceList } from './PerformanceList';
 
 export const Performance = () => {
-  const [_, setState] = useState(0);
-  const [list, setList] = useState(MOCK_DATA);
+  const [, setState] = useState(0);
+  const [list,] = useState(MOCK_DATA);
 
   const filteredListElements = useMemo(
     () => list.filter((_, index) => index % 24),
@@ -34,10 +34,16 @@ export const Performance = () => {
       <PerformanceMemo name='Adam' />
       <PerformanceList items={filteredListElements} />
       <PerformanceList.Memo items={filteredListElements} />
-      <h4>Results:</h4>
+      <h4>Results of memoize list:</h4>
       <Image
         src='/list-memo-diff.png'
         title='Difference between list and memo list'
+      />
+      <PerformanceList.Virtualized items={filteredListElements} />
+      <h4>Results of virtualization list:</h4>
+      <Image
+        src='/list-virtualization-diff.png'
+        title='Difference between list and virtualized list'
       />
     </div>
   );

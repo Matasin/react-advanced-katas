@@ -13,6 +13,11 @@ const App = () => {
   return (
     <>
       <Row header='React / React with TS'>
+        <h4>Add typing for React Component:</h4>
+        <ul>
+          <li>with children prop (QueryLoader.tsx | ErrorBoundary.tsx)</li>
+          <li>without children prop(e.g. Lists components)</li>
+        </ul>
         <Context />
       </Row>
       <Row header='React / Hooks'>
