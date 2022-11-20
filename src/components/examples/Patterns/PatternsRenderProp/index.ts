@@ -1,0 +1,1 @@
+export { PatternsRenderProp } from './PatternsRenderProp';

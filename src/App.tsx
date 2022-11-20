@@ -5,6 +5,7 @@ import { Performance } from '@/components/examples/Performance';
 import { StateManagement } from '@/components/examples/StateManagement';
 import { Bundle } from '@/components/examples/Bundle';
 import { Realtime } from '@/components/examples/Realtime';
+import { Patterns } from '@/components/examples/Patterns';
 import { Row } from '@/components/shared/Row';
 
 import './App.css';
@@ -32,7 +33,7 @@ const App = () => {
         </ErrorBoundary>
       </Row>
       <Row header='React / Patterns'>
-        <p>Add here links to PicDoc</p>
+        <Patterns />
       </Row>
       <Row header='React / Testing'>
         <p>?</p>
