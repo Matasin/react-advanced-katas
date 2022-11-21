@@ -1,6 +1,6 @@
 import { Row } from '@/components/shared/Row';
 
-import { PatternsContainment } from './PatternsContainment/PatternsContainment';
+import { PatternsContainment } from './PatternsContainment';
 import { PatternsRenderProp } from './PatternsRenderProp';
 
 export const Patterns = () => {
