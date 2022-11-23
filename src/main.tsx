@@ -18,7 +18,7 @@ import './index.css';
 // });
 
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'http://localhost:5000/',
   cache: new InMemoryCache(),
 });
 

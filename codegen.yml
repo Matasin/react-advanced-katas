@@ -1,0 +1,28 @@
+schema: http://localhost:5000/
+overwrite: true
+
+generates:
+    src/queries/__generated__/types.tsx:
+        documents: 'src/queries/**.gql'
+        plugins:
+            - typescript
+
+    src/queries/__generated__/operations.tsx:
+        documents: 'src/queries/**.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: ./types
+        plugins:
+            - typescript-operations
+
+    src/queries/__generated__/hooks.tsx:
+        documents: 'src/queries/**.gql'
+        preset: import-types
+        presetConfig:
+            typesPath: ./operations
+        plugins:
+            - typescript-react-apollo
+        config:
+            withHOC: false
+            withComponent: false
+            withHooks: true

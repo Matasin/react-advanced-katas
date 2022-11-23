@@ -51,3 +51,35 @@
   border-radius: 3px;
   margin-bottom: 0.5em;
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #cbcbcb;
+  border-spacing: 0;
+  empty-cells: show;
+}
+
+table {
+  width: 750px;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+th {
+  background: rgb(63, 68, 71);
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  min-width: 100px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 18px;
+}

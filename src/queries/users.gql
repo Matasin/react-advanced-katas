@@ -1,0 +1,39 @@
+fragment BasicUserData on User {
+    id
+    firstName
+    lastName
+    email
+    role
+}
+
+fragment SensitiveUserData on User {
+    password
+}
+
+fragment NonImportantUserData on User {
+    companyId
+}
+
+query AllUsers {
+    allUsers {
+        ...BasicUserData
+    }
+    # users: allUsers(role: "user") {
+    #     ...UserData
+    # }
+    # admins: allUsers(role: "admin") {
+    #     ...UserData
+    # }
+}
+
+query User(
+  $id: ID!,
+  $sensitiveData: Boolean!,
+  $skipNonImportantData: Boolean!,
+) {
+    User(id: $id) {
+        ...BasicUserData
+        ...NonImportantUserData @skip(if: $skipNonImportantData)
+        ...SensitiveUserData @include(if: $sensitiveData)
+    }
+}
