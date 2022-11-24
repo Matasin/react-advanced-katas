@@ -20,7 +20,7 @@
       "@/*": ["src/*"],
     },
   },
-  "include": ["src", "server.js"],
+  "include": ["src", "server.js", "api"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 // to do - check this weird error

@@ -1,29 +1,37 @@
 import express from 'express';
-import http from 'http';
-import { Server } from 'socket.io';
-
+import cors from 'cors';
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: '*'
+
+var corsOptions = {
+  origin: '*'
+};
+
+app.use(express.json());
+const items = [];
+
+app.all('/', cors(corsOptions), async (req, res) => {
+  await new Promise(r => setTimeout(r, 1000));
+
+  if (req.method === 'POST') {
+    const { text } = req.body;
+
+    if (Math.random() > 0.7) {
+      res.status(500);
+      res.json({ message: 'Could not add item!' });
+      return;
+    }
+
+    const newTodo = { id: Math.random().toString(), text: text.toUpperCase() };
+    items.push(newTodo);
+    res.json(newTodo);
+    return;
+  } else {
+    res.json({
+      ts: Date.now(),
+      items,
+    });
   }
-});
+}
+);
 
-io.on('connection', (client) => {
-  client.on('subscribeToTimer', (interval) => {
-    console.log('client is subscribing to timer with interval ', interval);
-    setInterval(() => {
-      const dt = new Date();
-      const padL = (nr, chr = `0`) => `${nr}`.padStart(2, chr);
-
-      const formatted = `${padL(dt.getMonth() + 1)}/${padL(dt.getDate())}/${dt.getFullYear()} ${padL(dt.getHours())}:${padL(dt.getMinutes())}:${padL(dt.getSeconds())}`;
-
-      client.emit('timer', formatted);
-    }, interval);
-  });
-});
-
-server.listen(8000, () => {
-  console.log('listening on *:8000');
-});
+app.listen(8000);
