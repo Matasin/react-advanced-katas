@@ -27,13 +27,57 @@ query AllUsers {
 }
 
 query User(
-  $id: ID!,
-  $sensitiveData: Boolean!,
-  $skipNonImportantData: Boolean!,
+    $id: ID!
+    $sensitiveData: Boolean!=
+    $skipNonImportantData: Boolean!
 ) {
     User(id: $id) {
         ...BasicUserData
         ...NonImportantUserData @skip(if: $skipNonImportantData)
         ...SensitiveUserData @include(if: $sensitiveData)
+    }
+}
+
+mutation AddUser(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+    $role: String!
+    $companyId: String!
+) {
+    createUser(
+        firstName: $firstName
+        lastName: $lastName
+        email: $email
+        password: $password
+        role: $role
+        companyId: $companyId
+    ) {
+        ...BasicUserData
+    }
+}
+
+mutation RemoveUser($id: ID!) {
+    removeUser(id: $id){
+      id
+    }
+}
+
+mutation UpdateUser(
+    $id: ID!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $role: String!
+) {
+    updateUser(
+        id: $id
+        firstName: $firstName
+        lastName: $lastName
+        email: $email
+        role: $role
+    ) {
+        ...BasicUserData
     }
 }

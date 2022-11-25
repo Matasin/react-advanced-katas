@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { List, AutoSizer } from 'react-virtualized';
 import { FixedSizeList } from 'react-window';
 
 import {
@@ -77,7 +76,7 @@ const PerformanceListVirtualized = memo(({
   );
 });
 
-PerformanceListMemo.displayName = 'PerformanceListVirtualized';
+PerformanceListVirtualized.displayName = 'PerformanceListVirtualized';
 
 PerformanceList.Memo = PerformanceListMemo;
 PerformanceList.Virtualized = PerformanceListVirtualized;

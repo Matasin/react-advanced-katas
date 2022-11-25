@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .row {
   border-bottom: 1px solid #fefefe;
   padding: 1.5em;
@@ -75,6 +79,10 @@ th {
   font-weight: bold;
 }
 
+td {
+  cursor: pointer;
+}
+
 td,
 th {
   padding: 10px;
@@ -82,4 +90,19 @@ th {
   border: 1px solid #ccc;
   text-align: left;
   font-size: 18px;
+}
+
+.add-user-button {
+  margin: auto;
+  display: block;
+}
+
+.error-message {
+  width: 100%;
+  color: red;
+  text-align: center;
+  border: 1px solid red;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
 }

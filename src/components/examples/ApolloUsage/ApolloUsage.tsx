@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { QueryLoader } from '@/components/shared/QueryLoader';
 import { useAllUsersQuery } from '@/queries/__generated__/hooks';
+import type { User } from '@/queries/__generated__/types';
 
 import { UsersTable } from './UsersTable';
 import { UserPreview } from './UserPreview';
@@ -26,7 +27,7 @@ export const ApolloUsage = () => {
     return (
       <>
         <UsersTable
-          users={data.allUsers}
+          users={data.allUsers as User[]}
           handleSetUserId={handleSetUserId}
         />
         {

@@ -127,7 +127,6 @@ export type MutationCreateUserArgs = {
   lastName: Scalars['String'];
   password: Scalars['String'];
   role: Scalars['String'];
-  type: Scalars['String'];
 };
 
 
@@ -198,7 +197,6 @@ export type MutationUpdateUserArgs = {
   lastName?: InputMaybe<Scalars['String']>;
   password?: InputMaybe<Scalars['String']>;
   role?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
 };
 
 export type Order = {
@@ -427,7 +425,6 @@ export type User = {
   lastName: Scalars['String'];
   password: Scalars['String'];
   role: Scalars['String'];
-  type: Scalars['String'];
 };
 
 export type UserFilter = {
@@ -447,8 +444,6 @@ export type UserFilter = {
   q?: InputMaybe<Scalars['String']>;
   role?: InputMaybe<Scalars['String']>;
   role_neq?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Scalars['String']>;
-  type_neq?: InputMaybe<Scalars['String']>;
 };
 
 export type UserInput = {
@@ -458,5 +453,4 @@ export type UserInput = {
   lastName: Scalars['String'];
   password: Scalars['String'];
   role: Scalars['String'];
-  type: Scalars['String'];
 };

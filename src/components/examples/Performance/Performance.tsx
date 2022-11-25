@@ -7,11 +7,16 @@ import { PerformanceMemo } from './PerformanceMemo';
 import { PerformanceList } from './PerformanceList';
 
 export const Performance = () => {
-  const [, setState] = useState(0);
+  const [state, setState] = useState(1);
   const [list,] = useState(MOCK_DATA);
 
   const filteredListElements = useMemo(
     () => list.filter((_, index) => index % 24),
+    [list]
+  );
+
+  const reversedListElements = useMemo(
+    () => filteredListElements.reverse(),
     [list]
   );
 
@@ -31,9 +36,12 @@ export const Performance = () => {
         title='Profile production mode'
       />
       <button onClick={handleRefreshComponent}>Refresh Component</button>
-      <PerformanceMemo name='Adam' />
+      <PerformanceMemo
+        name='Adam'
+        count={state}
+      />
+      <PerformanceList.Memo items={reversedListElements} />
       <PerformanceList items={filteredListElements} />
-      <PerformanceList.Memo items={filteredListElements} />
       <h4>Results of memoize list:</h4>
       <Image
         src='/list-memo-diff.png'

@@ -6,7 +6,6 @@ import { StateManagement } from '@/components/examples/StateManagement';
 import { Bundle } from '@/components/examples/Bundle';
 import { Realtime } from '@/components/examples/Realtime';
 import { Patterns } from '@/components/examples/Patterns';
-import { Testing } from '@/components/examples/Testing';
 import { ApolloUsage } from './components/examples/ApolloUsage';
 import { Row } from '@/components/shared/Row';
 
@@ -31,9 +30,6 @@ const App = () => {
       </Row>
       <Row header='React / Patterns'>
         <Patterns />
-      </Row>
-      <Row header='React / Testing'>
-        <Testing name='Adam' />
       </Row>
       <Row header='Server State management / Usage'>
         <StateManagement />
